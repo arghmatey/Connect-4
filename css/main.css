@@ -3,6 +3,13 @@ body {
     background-color: lightseagreen;
 }
 
+:root {
+    --page: lightseagreen;
+    --purple: #4B2436;
+    --mustard: #E2A411;
+    --green: #1E322D;
+}
+
 h1 {
     font-family: 'Bowlby One SC', cursive;
     text-align: center;
@@ -27,18 +34,38 @@ h1 {
     font-size: 5vh;
 }
 
-#gameboard, td {
-    border: 1vh solid blue;
+#game {
+    display: flex;
+    flex-direction: column;;
 }
 
-#gameboard {
+#player-choice {
+    display: flex;
+    flex-direction: row;
+    border: 1vh solid var(--page);
+}
+
+#player-choice > div {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 100%;
+    background-color: var(--mustard);
+    border: 1vh solid var(--page);
+}
+
+#board {
+    display: flex;
+    flex-direction: row;
     height: 60vh;
     width: 70vh;
-    background-color: blue;
-    margin-top: 10vh;
+    background-color: var(--green);
+    border: 1vh solid var(--green);
 }
 
-td {
+.column > div {
+    height: 8vh;
+    width: 8vh;
     border-radius: 100%;
-    background-color: lightseagreen;
+    background-color: var(--page);
+    border: 1vh solid var(--green);
 }
