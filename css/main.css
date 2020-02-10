@@ -1,0 +1,44 @@
+body {
+    box-sizing: border-box;
+    background-color: lightseagreen;
+}
+
+h1 {
+    font-family: 'Bowlby One SC', cursive;
+    text-align: center;
+    font-size: 5vh;
+    margin-top: 3vh;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.scores {
+    height: 20vh;
+    font-family: 'Bowlby One SC', cursive;
+    text-align: center;
+}
+
+.player-score {
+    font-size: 5vh;
+}
+
+#gameboard, td {
+    border: 1vh solid blue;
+}
+
+#gameboard {
+    height: 60vh;
+    width: 70vh;
+    background-color: blue;
+    margin-top: 10vh;
+}
+
+td {
+    border-radius: 100%;
+    background-color: lightseagreen;
+}
