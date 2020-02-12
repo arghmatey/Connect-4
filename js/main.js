@@ -41,7 +41,6 @@ newGame.addEventListener('click', init);
 init();
 
 function clickHandler(evt) {
-    event.target.style.backgroundColor = 'transparent';
     let choiceNum = parseInt(event.target.getAttribute('class')); // pulls the class name of the div clicked on
     let slotNum = board[choiceNum].lastIndexOf(0); // pulls the index number of the first instance of 0 in the board array chosen
     board[choiceNum][slotNum] = turn; //sets the value of the players choice to the players value in board array
