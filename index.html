@@ -4,90 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Raleway+Dots&display=swap" rel="stylesheet">    <script defer src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Raleway+Dots&display=swap" rel="stylesheet">
+    <script defer src="js/main.js"></script>
     <title>Connect Four</title>
 </head>
 <body>
     <h1>Connect 4</h1>
     <div id="container">
-    <section class="scores" id="player-one">
-        <h2 class="player-num">Player One</h2>
+    <section class="scores" id="player1">
+        <h2 class="player-num">Player<br>One</h2>
         <div class="player-score" id="pos">0</div>
     </section>
     <div id="game">
         <div id="player-choice">
-            <!-- ROW -->
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <!-- HOVERBOARD -->
+            <div class="0"></div>
+            <div class="1"></div>
+            <div class="2"></div>
+            <div class="3"></div>
+            <div class="4"></div>
+            <div class="5"></div>
+            <div class="6"></div>
         </div>
         <section id="board">
-            <div class="column"> <!-- column 1 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col0"> <!-- column 1 -->
+                <div class="hole"></div>
+                <div class="row4"></div>
+                <div class="row3"></div>
+                <div class="row2"></div>
+                <div class="row1"></div>
+                <div class="row0"></div>
             </div>
-            <div class="column"> <!-- column 2 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col1"> <!-- column 2 -->
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
             </div>
-            <div class="column"> <!-- column 3 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col2"> <!-- column 3 -->
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
             </div>
-            <div class="column"> <!-- column 4 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col3"> <!-- column 4 -->
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
             </div>
-            <div class="column"> <!-- column 5 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col4"> <!-- column 5 -->
+                <div class="0"></div>
+                <div class="1"></div>
+                <div class="2"></div>
+                <div class="3"></div>
+                <div class="4"></div>
+                <div class="5"></div>
             </div>
-            <div class="column"> <!-- column 6 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col5"> <!-- column 6 -->
+                <div class="0"></div>
+                <div class="1"></div>
+                <div class="2"></div>
+                <div class="3"></div>
+                <div class="4"></div>
+                <div class="5"></div>
             </div>
-            <div class="column"> <!-- column 7 -->
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="column" id="col6"> <!-- column 7 -->
+                <div class="0"></div>
+                <div class="1"></div>
+                <div class="2"></div>
+                <div class="3"></div>
+                <div class="4"></div>
+                <div class="5"></div>
             </div>
         </section>
     </div>
-    <section class="scores" id="player-two">
-        <h2 class="player-num">Player Two</h2>
+    <section class="scores" id="player2">
+        <h2 class="player-num">Player<br>Two</h2>
         <div class="player-score" id="pts">0</div>
     </section>
     </div>
+    <section id="options">
+        <button id="new-game">New Game</button>
+    </section>
 </body>
 </html>
+
+<!-- try to generate divs needed in javascript -->

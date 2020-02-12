@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    background-color: lightseagreen;
+    background-color: var(--page);
 }
 
 :root {
@@ -26,12 +26,29 @@ h1 {
 
 .scores {
     height: 20vh;
+    width: 20vh;
     font-family: 'Bowlby One SC', cursive;
     text-align: center;
 }
 
 .player-score {
     font-size: 5vh;
+}
+
+.player-num {
+    margin-bottom: 0;
+}
+
+#player-one-color {
+    border-radius: 100%;
+    box-shadow: 0 0 29px 13px var(--purple),
+    inset 0 0 29px 13px var(--purple);
+}
+
+#player-two-color {
+    border-radius: 100%;
+    box-shadow: 0 0 29px 13px var(--mustard),
+    inset 0 0 29px 13px var(--mustard);
 }
 
 #game {
@@ -49,7 +66,7 @@ h1 {
     height: 8vh;
     width: 8vh;
     border-radius: 100%;
-    background-color: var(--mustard);
+    background-color: transparent;
     border: 1vh solid var(--page);
 }
 
@@ -68,4 +85,13 @@ h1 {
     border-radius: 100%;
     background-color: var(--page);
     border: 1vh solid var(--green);
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+#new-game {
+    margin-top: 4vh;
 }
