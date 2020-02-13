@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
     background-color: var(--page);
+    font-family: 'Bowlby One SC', cursive;
 }
 
 :root {
@@ -11,10 +12,16 @@ body {
 }
 
 h1 {
-    font-family: 'Bowlby One SC', cursive;
     text-align: center;
     font-size: 5vh;
     margin-top: 3vh;
+    margin-bottom: 0;
+}
+
+#winner {
+    height: 5vh;
+    font-size: 4vh;
+    text-align: center;
 }
 
 #container {
@@ -27,7 +34,6 @@ h1 {
 .scores {
     height: 20vh;
     width: 20vh;
-    font-family: 'Bowlby One SC', cursive;
     text-align: center;
 }
 
@@ -65,7 +71,7 @@ h1 {
 #player-choice > div {
     height: 8vh;
     width: 8vh;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: transparent;
     border: 1vh solid var(--page);
 }
@@ -92,6 +98,6 @@ h1 {
     justify-content: center;
 }
 
-#new-game {
+#new-board {
     margin-top: 4vh;
 }
