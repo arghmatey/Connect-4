@@ -26,50 +26,79 @@ const playerInfo = {
     }
 }
 
-playerChoices.forEach(function(choice) {
-    choice.addEventListener('mouseover', function(evt) {
+playerChoices.forEach(function (choice) {
+    choice.addEventListener('mouseover', function (evt) {
         event.target.style.backgroundColor = playerInfo[turn]['color'];
     }),
-    choice.addEventListener('mouseout', function(evt) {
-        event.target.style.backgroundColor = 'transparent';
-    }),
-    choice.addEventListener('click', clickHandler)
+        choice.addEventListener('mouseout', function (evt) {
+            event.target.style.backgroundColor = 'transparent';
+        }),
+        choice.addEventListener('click', clickHandler)
 });
 
 newGame.addEventListener('click', init);
 
 init();
 
-function clickHandler(evt) {
-    let choiceNum = parseInt(event.target.getAttribute('class')); // pulls the class name of the div clicked on
-    let slotNum = board[choiceNum].lastIndexOf(0); // pulls the index number of the first instance of 0 in the board array chosen
-    board[choiceNum][slotNum] = turn; //sets the value of the players choice to the players value in board array
-    turn *= -1;
-    render();
+function winLogic() {
+    for (let v = 0; v < board.length; v++) {
+        for (let h = 0; h < board[v].length; h++) {
+            if (board[v][h] === turn && board[v][h + 1] === turn && board[v][h + 2] === turn && board[v][h + 3] === turn) {
+                winner = turn;
+                renderGameStatus();
+            } else if (board[v + 1] && board[v + 2] && board[v + 3]) {
+                if (board[v][h] === turn && board[v + 1][h] === turn && board[v + 2][h] === turn && board[v + 3][h] === turn) {
+                    winner = turn;
+                    renderGameStatus();
+                }
+                if (board[v][h] === turn && board[v + 1][h + 1] === turn && board[v + 2][h + 2] === turn && board[v + 3][h + 3] === turn) {
+                    winner = turn;
+                    renderGameStatus();
+                }
+                if (board[v][h] === turn && board[v + 1][h - 1] === turn && board[v + 2][h - 2] === turn && board[v + 3][h - 3] === turn) {
+                    winner = turn;
+                    renderGameStatus();
+                }
+            };
+        };
+    };
 }
 
-function render(){
+function clickHandler(evt) {
+    let columnNum = parseInt(event.target.getAttribute('class'));
+    let slotNum = board[columnNum].lastIndexOf(0);
+    if (slotNum === -1) return;
+    board[columnNum][slotNum] = turn;
+    console.log(board[columnNum][slotNum - 1]);
+
+    winLogic();
+
+    turn *= -1;
+    event.target.style.backgroundColor = playerInfo[turn]['color'];
+    render();
+
+}
+
+function render() {
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
-            let holeColor = board[i][j];    
+            let holeColor = board[i][j];
             gameBoard.children[i].children[j].style.backgroundColor = playerInfo[holeColor]['color'];
         };
     };
-    renderMessage();
+    renderGameStatus();
 }
 
-function renderMessage() {
+function renderGameStatus() {
     if (winner === null) {
         playerInfo[turn]['scoreBox'].setAttribute('id', playerInfo[turn]['id']);
-        playerInfo[turn*-1]['scoreBox'].setAttribute('id', playerInfo['0']['id']);
-    } else if (winner === 'tie') {
-        console.log('wtf a tie?');
-    } else {
-        console.log('boom win');
-    }
+        playerInfo[turn * -1]['scoreBox'].setAttribute('id', playerInfo['0']['id']);
+    } else if (winner === turn) {
+        console.log('fuck yeah winner!!!');
+    };
 }
 
-function init(){
+function init() {
     board = [
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
