@@ -44,6 +44,75 @@ newBoard.addEventListener('click', emptyBoard);
 
 init();
 
+function init() {
+    score = {
+        '1': 0,
+        '-1': 0
+    }
+    turn = 1;
+    emptyBoard();
+}
+
+function emptyBoard() {
+    board = [
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ];
+    turnCount = 0;
+    winner = null;
+    render();
+}
+
+function clickHandler(evt) {
+    if (winner) return;
+    let columnNum = parseInt(event.target.getAttribute('class'));
+    let slotNum = board[columnNum].lastIndexOf(0);
+    if (slotNum === -1) return;
+    board[columnNum][slotNum] = turn;
+    turnCount+=1;
+    winLogic();
+    tieLogic();
+    renderGameStatus();
+    turn *= -1;
+    render();
+}
+
+function render() {
+    event.target.style.backgroundColor = playerInfo[turn].color;
+    pOneScore.textContent = score['1'];
+    pTwoScore.textContent = score['-1'];
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            let playerSelect = board[i][j];
+            gameBoard.children[i].children[j].style.backgroundColor = playerInfo[playerSelect].color;
+        };
+    };
+    renderGameStatus();
+}
+
+function renderGameStatus() {
+    if (winner === null) {
+        playerInfo[turn]['scoreBox'].setAttribute('id', playerInfo[turn].id);
+        playerInfo[turn * -1]['scoreBox'].setAttribute('id', playerInfo['0'].id);
+        messageBox.textContent = '';
+    } else if (winner === turn) {
+        score[winner]++;
+        winningMessage();
+    } else if (winner === 'tie') {
+        messageBox.textContent = 'try again... you tied!';
+    };
+}
+
+function winningMessage() {
+    messageBox.style.color = `${playerInfo[winner].color}`;
+    messageBox.textContent = `${playerInfo[winner].name} wins!`
+}
+
 function winLogic() {
     for (let c = 0; c < board.length; c++) {
         for (let r = 0; r < board[c].length; r++) {
@@ -68,73 +137,4 @@ function tieLogic() {
     if (turnCount===42) {
         winner = 'tie';
     }
-}
-
-function clickHandler(evt) {
-    if (winner) return;
-    let columnNum = parseInt(event.target.getAttribute('class'));
-    let slotNum = board[columnNum].lastIndexOf(0);
-    if (slotNum === -1) return;
-    board[columnNum][slotNum] = turn;
-    turnCount+=1;
-    winLogic();
-    tieLogic();
-    renderGameStatus();
-    turn *= -1;
-    event.target.style.backgroundColor = playerInfo[turn].color;
-    render();
-}
-
-function winningMessage() {
-    messageBox.style.color = `${playerInfo[winner].color}`;
-    messageBox.textContent = `${playerInfo[winner].name} wins!`
-}
-
-function renderGameStatus() {
-    if (winner === null) {
-        playerInfo[turn]['scoreBox'].setAttribute('id', playerInfo[turn].id);
-        playerInfo[turn * -1]['scoreBox'].setAttribute('id', playerInfo['0'].id);
-        messageBox.textContent = '';
-    } else if (winner === turn) {
-        score[winner]++;
-        winningMessage();
-    } else if (winner === 'tie') {
-        messageBox.textContent = 'try again... you tied!';
-    };
-}
-
-function render() {
-    pOneScore.textContent = score['1'];
-    pTwoScore.textContent = score['-1'];
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[i].length; j++) {
-            let playerSelect = board[i][j];
-            gameBoard.children[i].children[j].style.backgroundColor = playerInfo[playerSelect].color;
-        };
-    };
-    renderGameStatus();
-}
-
-function emptyBoard() {
-    board = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ];
-    turnCount = 0;
-    winner = null;
-    render();
-}
-
-function init() {
-    score = {
-        '1': 0,
-        '-1': 0
-    }
-    turn = 1;
-    emptyBoard();
 }
