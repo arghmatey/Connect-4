@@ -81,7 +81,6 @@ function clickHandler(evt) {
     tieLogic();
     renderGameStatus();
     turn *= -1;
-    event.target.style.backgroundColor = playerInfo[turn].color;
     render();
 }
 
@@ -104,6 +103,7 @@ function renderGameStatus() {
 }
 
 function render() {
+    event.target.style.backgroundColor = playerInfo[turn].color;
     pOneScore.textContent = score['1'];
     pTwoScore.textContent = score['-1'];
     for (let i = 0; i < board.length; i++) {
