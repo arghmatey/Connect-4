@@ -51,19 +51,15 @@ function winLogic() {
         for (let r = 0; r < board[c].length; r++) {
             if (board[c][r] === turn && board[c][r + 1] === turn && board[c][r + 2] === turn && board[c][r + 3] === turn) {
                 winner = turn;
-                // renderGameStatus();
             } else if (board[c + 1] && board[c + 2] && board[c + 3]) {
                 if (board[c][r] === turn && board[c + 1][r] === turn && board[c + 2][r] === turn && board[c + 3][r] === turn) {
                     winner = turn;
-                    // renderGameStatus();
                 }
                 if (board[c][r] === turn && board[c + 1][r + 1] === turn && board[c + 2][r + 2] === turn && board[c + 3][r + 3] === turn) {
                     winner = turn;
-                    // renderGameStatus();
                 }
                 if (board[c][r] === turn && board[c + 1][r - 1] === turn && board[c + 2][r - 2] === turn && board[c + 3][r - 3] === turn) {
                     winner = turn;
-                    // renderGameStatus();
                 }
             } 
         };
