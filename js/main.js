@@ -1,7 +1,7 @@
 let board = [];
 let turn, winner, score, turnCount;
 
-const playerChoices = document.querySelector('#player-choice').querySelectorAll('div');
+const playerChoice = document.querySelector('#player-choice').querySelectorAll('div');
 const gameboardColumns = document.querySelectorAll('column');
 const gameBoard = document.querySelector('#board');
 const newBoard = document.querySelector('#new-board');
@@ -17,20 +17,20 @@ const playerInfo = {
         'id': ''
     },
     '1': {
-        'name': 'Player One',
+        'name': 'Purple',
         'color': 'var(--purple)',
         'id': 'player-one-color',
         'scoreBox': pOneEl
     },
     '-1': {
-        'name': 'Player Two',
+        'name': 'Mustard',
         'color': 'var(--mustard)',
         'id': 'player-two-color',
         'scoreBox': pTwoEl
     }
 }
 
-playerChoices.forEach(function (choice) {
+playerChoice.forEach(function (choice) {
     choice.addEventListener('mouseover', function (evt) {
         event.target.style.backgroundColor = playerInfo[turn].color;
     }),
@@ -41,8 +41,6 @@ playerChoices.forEach(function (choice) {
 });
 
 newBoard.addEventListener('click', emptyBoard);
-
-
 
 init();
 
@@ -101,7 +99,7 @@ function renderGameStatus() {
         score[winner]++;
         winningMessage();
     } else if (winner === 'tie') {
-        messageBox.textContent = 'try again! you tied';
+        messageBox.textContent = 'try again... you tied!';
     };
 }
 
@@ -127,7 +125,6 @@ function emptyBoard() {
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0]
     ];
-    turn = 1;
     turnCount = 0;
     winner = null;
     render();
@@ -138,5 +135,6 @@ function init() {
         '1': 0,
         '-1': 0
     }
+    turn = 1;
     emptyBoard();
 }
