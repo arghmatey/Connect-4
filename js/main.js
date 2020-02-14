@@ -1,5 +1,5 @@
 let board = [];
-let turn, winner, score;
+let turn, winner, score, turnCount;
 
 const playerChoices = document.querySelector('#player-choice').querySelectorAll('div');
 const gameboardColumns = document.querySelectorAll('column');
@@ -51,25 +51,30 @@ function winLogic() {
         for (let r = 0; r < board[c].length; r++) {
             if (board[c][r] === turn && board[c][r + 1] === turn && board[c][r + 2] === turn && board[c][r + 3] === turn) {
                 winner = turn;
-                renderGameStatus();
+                // renderGameStatus();
             } else if (board[c + 1] && board[c + 2] && board[c + 3]) {
                 if (board[c][r] === turn && board[c + 1][r] === turn && board[c + 2][r] === turn && board[c + 3][r] === turn) {
                     winner = turn;
-                    renderGameStatus();
+                    // renderGameStatus();
                 }
                 if (board[c][r] === turn && board[c + 1][r + 1] === turn && board[c + 2][r + 2] === turn && board[c + 3][r + 3] === turn) {
                     winner = turn;
-                    renderGameStatus();
+                    // renderGameStatus();
                 }
                 if (board[c][r] === turn && board[c + 1][r - 1] === turn && board[c + 2][r - 2] === turn && board[c + 3][r - 3] === turn) {
                     winner = turn;
-                    renderGameStatus();
+                    // renderGameStatus();
                 }
             } 
         };
     };
 }
 
+function tieLogic() {
+    if (turnCount===42) {
+        winner = 'tie';
+    }
+}
 
 function clickHandler(evt) {
     if (winner) return;
@@ -77,7 +82,10 @@ function clickHandler(evt) {
     let slotNum = board[columnNum].lastIndexOf(0);
     if (slotNum === -1) return;
     board[columnNum][slotNum] = turn;
+    turnCount+=1;
     winLogic();
+    tieLogic();
+    renderGameStatus();
     turn *= -1;
     event.target.style.backgroundColor = playerInfo[turn].color;
     render();
@@ -96,6 +104,8 @@ function renderGameStatus() {
     } else if (winner === turn) {
         score[winner]++;
         winningMessage();
+    } else if (winner === 'tie') {
+        messageBox.textContent = 'try again! you tied';
     };
 }
 
@@ -122,6 +132,7 @@ function emptyBoard() {
         [0, 0, 0, 0, 0, 0]
     ];
     turn = 1;
+    turnCount = 0;
     winner = null;
     render();
 }
