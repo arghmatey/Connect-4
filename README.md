@@ -14,6 +14,11 @@ Technologies used: HTML, CSS, Javascript, Visual Code Studio
 
 Give it a whirl: https://arghmatey.github.io/project1/
 - To reset the board, hit that "New Board" button at the bottom of the page.
+- Each new game's first turn will be taken by the non-winner of the last round.
+- A tie game will result in no winner and a new game will need to be started
 
-Upcoming enhancements: sound and themes for a more fun player experience!
+Upcoming enhancements:
+- interactive sound
+- player decoration themes
+- customizable board grid size
 
