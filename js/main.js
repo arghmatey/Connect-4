@@ -5,15 +5,16 @@ const playerChoice = document.querySelector('#player-choice').querySelectorAll('
 const gameboardColumns = document.querySelectorAll('column');
 const gameBoard = document.querySelector('#board');
 const newBoard = document.querySelector('#new-board');
-const messageBox = document.querySelector('#winner')
+const messageBox = document.querySelector('#winner');
 const pOneEl = document.querySelector('#player1');
 const pTwoEl = document.querySelector('#player2');
-const pOneScore = document.querySelector('#player1 div')
-const pTwoScore = document.querySelector('#player2 div')
+const pOneScore = document.querySelector('#player1 div');
+const pTwoScore = document.querySelector('#player2 div');
+const darkBtn = document.querySelector('#toggle-dark');
 
 const playerInfo = {
     '0': {
-        'color': 'var(--page)',
+        'color': 'var(--primary)',
         'id': ''
     },
     '1': {
@@ -30,17 +31,21 @@ const playerInfo = {
     }
 }
 
-playerChoice.forEach(function (choice) {
-    choice.addEventListener('mouseover', function (evt) {
+playerChoice.forEach(choice => {
+    choice.addEventListener('mouseover', evt => {
         event.target.style.backgroundColor = playerInfo[turn].color;
     }),
-        choice.addEventListener('mouseout', function (evt) {
+        choice.addEventListener('mouseout', evt => {
             event.target.style.backgroundColor = 'transparent';
         }),
         choice.addEventListener('click', clickHandler)
 });
 
 newBoard.addEventListener('click', emptyBoard);
+darkBtn.addEventListener('click', evt => {
+    document.documentElement.style.setProperty('--primary', '#101010')
+    document.documentElement.style.setProperty('--text', '#FFFFFF')
+})
 
 init();
 
@@ -74,7 +79,7 @@ function clickHandler(evt) {
     let slotNum = board[columnNum].lastIndexOf(0);
     if (slotNum === -1) return;
     board[columnNum][slotNum] = turn;
-    turnCount+=1;
+    turnCount += 1;
     winLogic();
     tieLogic();
     renderGameStatus();
@@ -128,13 +133,13 @@ function winLogic() {
                 if (board[c][r] === turn && board[c + 1][r - 1] === turn && board[c + 2][r - 2] === turn && board[c + 3][r - 3] === turn) {
                     winner = turn;
                 }
-            } 
+            }
         };
     };
 }
 
 function tieLogic() {
-    if (turnCount===42) {
+    if (turnCount === 42) {
         winner = 'tie';
     }
 }

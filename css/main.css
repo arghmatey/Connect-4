@@ -1,14 +1,18 @@
 body {
     box-sizing: border-box;
-    background-color: var(--page);
+    background-color: var(--primary);
     font-family: 'Bowlby One SC', cursive;
+    color: var(--text);
 }
 
 :root {
-    --page: lightseagreen;
+    --default-page: lightseagreen;
+    --default-text: black;
     --purple: #4B2436;
     --mustard: #E2A411;
     --green: #1E322D;
+    --primary: var(--default-page);
+    --text: var(--default-text);
 }
 
 h1 {
@@ -48,33 +52,32 @@ h1 {
 
 #player-one-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--purple),
-    inset 0 0 29px 13px var(--purple);
+    box-shadow: 0 0 29px 13px var(--purple), inset 0 0 29px 13px var(--purple);
 }
 
 #player-two-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--mustard),
-    inset 0 0 29px 13px var(--mustard);
+    box-shadow: 0 0 29px 13px var(--mustard), inset 0 0 29px 13px var(--mustard);
 }
 
 #game {
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
+    ;
 }
 
 #player-choice {
     display: flex;
     flex-direction: row;
-    border: 1vh solid var(--page);
+    border: 1vh solid var(--primary);
 }
 
-#player-choice > div {
+#player-choice>div {
     height: 8vh;
     width: 8vh;
     border-radius: 50%;
     background-color: transparent;
-    border: 1vh solid var(--page);
+    border: 1vh solid var(--primary);
 }
 
 #board {
@@ -86,19 +89,16 @@ h1 {
     border: 1vh solid var(--green);
 }
 
-.column > div {
+.column>div {
     height: 8vh;
     width: 8vh;
     border-radius: 100%;
-    background-color: var(--page);
+    background-color: var(--primary);
     border: 1vh solid var(--green);
 }
 
 #options {
+    padding: 4vh;
     display: flex;
     justify-content: center;
-}
-
-#new-board {
-    margin-top: 4vh;
 }
