@@ -6,13 +6,23 @@ body {
 }
 
 :root {
-    --default-page: lightseagreen;
-    --default-text: black;
-    --purple: #4B2436;
-    --mustard: #E2A411;
-    --green: #1E322D;
-    --primary: var(--default-page);
-    --text: var(--default-text);
+    --default1: #20b2aa;
+    --default2: #000000;
+    --default3: #4B2436;
+    --default4: #E2A411;
+    --default5: #1E322D;
+    --dark1: #000000;
+    --dark2: #252525;
+    --dark3: #C1584B;
+    --dark4: #F2F0D5;
+    --dark5: #1F1E1E;
+    --sherbert1: #e76f51;
+    --sherbert2: #f4a261;
+    --sherbert3: #2a9d8f;
+    --sherbert4: #e9c46a;
+    --sherbert5: #264653;
+    --primary: var(--default1);
+    --text: var(--default2);
 }
 
 h1 {
@@ -52,12 +62,12 @@ h1 {
 
 #player-one-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--purple), inset 0 0 29px 13px var(--purple);
+    box-shadow: 0 0 29px 13px var(--default3), inset 0 0 29px 13px var(--default3);
 }
 
 #player-two-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--mustard), inset 0 0 29px 13px var(--mustard);
+    box-shadow: 0 0 29px 13px var(--default4), inset 0 0 29px 13px var(--default4);
 }
 
 #game {
@@ -85,8 +95,8 @@ h1 {
     flex-direction: row;
     height: 60vh;
     width: 70vh;
-    background-color: var(--green);
-    border: 1vh solid var(--green);
+    background-color: var(--default5);
+    border: 1vh solid var(--default5);
 }
 
 .column>div {
@@ -94,7 +104,7 @@ h1 {
     width: 8vh;
     border-radius: 100%;
     background-color: var(--primary);
-    border: 1vh solid var(--green);
+    border: 1vh solid var(--default5);
 }
 
 #options {
