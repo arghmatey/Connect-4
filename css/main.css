@@ -6,23 +6,26 @@ body {
 }
 
 :root {
-    --default1: #20b2aa;
-    --default2: #000000;
-    --default3: #4B2436;
-    --default4: #E2A411;
-    --default5: #1E322D;
+    --def1: #20b2aa;
+    --def2: #000000;
+    --def3: #4B2436;
+    --def4: #E2A411;
+    --def5: #1E322D;
     --dark1: #000000;
     --dark2: #252525;
     --dark3: #C1584B;
     --dark4: #F2F0D5;
     --dark5: #1F1E1E;
-    --sherbert1: #e76f51;
-    --sherbert2: #f4a261;
-    --sherbert3: #2a9d8f;
-    --sherbert4: #e9c46a;
-    --sherbert5: #264653;
-    --primary: var(--default1);
-    --text: var(--default2);
+    --sher1: #F2F0D5;
+    --sher2: #e76f51;
+    --sher3: #2a9d8f;
+    --sher4: #e9c46a;
+    --sher5: #264653;
+    --primary: var(--def1);
+    --text: var(--def2);
+    --player1: var(--def3);
+    --player2: var(--def4);
+    --board: var(--def5);
 }
 
 h1 {
@@ -62,12 +65,12 @@ h1 {
 
 #player-one-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--default3), inset 0 0 29px 13px var(--default3);
+    box-shadow: 0 0 29px 13px var(--player1), inset 0 0 29px 13px var(--player1);
 }
 
 #player-two-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--default4), inset 0 0 29px 13px var(--default4);
+    box-shadow: 0 0 29px 13px var(--player2), inset 0 0 29px 13px var(--player2);
 }
 
 #game {
@@ -95,8 +98,8 @@ h1 {
     flex-direction: row;
     height: 60vh;
     width: 70vh;
-    background-color: var(--default5);
-    border: 1vh solid var(--default5);
+    background-color: var(--board);
+    border: 1vh solid var(--board);
 }
 
 .column>div {
@@ -104,11 +107,27 @@ h1 {
     width: 8vh;
     border-radius: 100%;
     background-color: var(--primary);
-    border: 1vh solid var(--default5);
+    border: 1vh solid var(--board);
 }
 
 #options {
     padding: 4vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+#options-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#new-board-wrapper, #selects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

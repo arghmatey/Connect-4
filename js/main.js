@@ -11,6 +11,7 @@ const pTwoEl = document.querySelector('#player2');
 const pOneScore = document.querySelector('#player1 div');
 const pTwoScore = document.querySelector('#player2 div');
 const darkBtn = document.querySelector('#toggle-dark');
+const themeSelect = document.querySelector('#theme-select');
 
 const playerInfo = {
     '0': {
@@ -18,14 +19,14 @@ const playerInfo = {
         'id': ''
     },
     '1': {
-        'name': 'Purple',
-        'color': 'var(--purple)',
+        'name': 'Player 1',
+        'color': 'var(--player1)',
         'id': 'player-one-color',
         'scoreBox': pOneEl
     },
     '-1': {
-        'name': 'Mustard',
-        'color': 'var(--mustard)',
+        'name': 'Player 2',
+        'color': 'var(--player2)',
         'id': 'player-two-color',
         'scoreBox': pTwoEl
     }
@@ -42,9 +43,27 @@ playerChoice.forEach(choice => {
 });
 
 newBoard.addEventListener('click', emptyBoard);
-darkBtn.addEventListener('click', evt => {
-    document.documentElement.style.setProperty('--primary', '#101010')
-    document.documentElement.style.setProperty('--text', '#FFFFFF')
+
+themeSelect.addEventListener('change', evt => {
+    if (event.target.value === 'Default') {
+        document.documentElement.style.setProperty('--primary', 'var(--def1)')
+        document.documentElement.style.setProperty('--text', 'var(--def2)')
+        document.documentElement.style.setProperty('--player1', 'var(--def3)')
+        document.documentElement.style.setProperty('--player2', 'var(--def4)')
+        document.documentElement.style.setProperty('--board', 'var(--def5)')
+    } else if (event.target.value === 'Dark') {
+        document.documentElement.style.setProperty('--primary', 'var(--dark1)')
+        document.documentElement.style.setProperty('--text', 'var(--dark2)')
+        document.documentElement.style.setProperty('--player1', 'var(--dark3)')
+        document.documentElement.style.setProperty('--player2', 'var(--dark4)')
+        document.documentElement.style.setProperty('--board', 'var(--dark5)')
+    } else if (event.target.value === 'Sherbert') {
+        document.documentElement.style.setProperty('--primary', 'var(--sher1)')
+        document.documentElement.style.setProperty('--text', 'var(--sher2)')
+        document.documentElement.style.setProperty('--player1', 'var(--sher3)')
+        document.documentElement.style.setProperty('--player2', 'var(--sher4)')
+        document.documentElement.style.setProperty('--board', 'var(--sher5)')
+    }
 })
 
 init();

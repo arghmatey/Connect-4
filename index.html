@@ -15,7 +15,7 @@
     <div id="winner"></div>
     <div id="container">
         <section class="scores" id="player1">
-            <h2 class="player-name">Purple</h2>
+            <h2 class="player-name">Player 1</h2>
             <div class="player-score" id="pos"></div>
         </section>
         <div id="game">
@@ -88,18 +88,26 @@
             </section>
         </div>
         <section class="scores" id="player2">
-            <h2 class="player-name">Mustard</h2>
+            <h2 class="player-name">Player 2</h2>
             <div class="player-score" id="pts"></div>
         </section>
     </div>
     <section id="options">
-        <button id="new-board">New Board</button>
-        <input type="button" value="Dark theme" id="toggle-dark" />
-        <select>
-            <option selected>Default</option>
-            <option>Dark</option>
-            <option>Sherbert</option>
-        </select>
+        <div id="options-wrapper">
+            <div id="new-board-wrapper">
+                <label for="new-board">Start new game</label>
+                <button id="new-board">New Board</button>
+            </div>
+            <br />
+            <div id="selects">
+                <label for="theme-select">Select theme</label>
+                <select id="theme-select">
+                    <option>Default</option>
+                    <option>Dark</option>
+                    <option>Sherbert</option>
+                </select>
+            </div>
+        </div>
     </section>
 </body>
 
