@@ -15,7 +15,6 @@
         <h1>Connect 4</h1>
     </div>
     <div id="winner"></div>
-    <!-- <div id="container col-2"> -->
     <div id="game col-2">
         <div id="player-choice">
             <div class="0"></div>
@@ -84,7 +83,6 @@
                 <div class="hole"></div>
             </div>
         </section>
-        <!-- </div> -->
         <section class="scores col-3" id="player1">
             <h2 class="player-name" id="player1-name">Player 1</h2>
             <div class="player-score" id="pos"></div>
@@ -95,20 +93,18 @@
         </section>
     </div>
     <section id="options">
-        <div id="options-wrapper">
-            <div id="new-board-wrapper">
-                <label for="new-board">Start new game</label>
-                <button id="new-board">New Board</button>
-            </div>
-            <br />
-            <div id="selects">
-                <label for="theme-select">Select theme</label>
-                <select id="theme-select">
-                    <option>Default</option>
-                    <option>Dark</option>
-                    <option>Sherbert</option>
-                </select>
-            </div>
+        <div class="col-5" id="new-board-wrapper">
+            <label for="new-board">Start new game</label>
+            <button id="new-board">New Board</button>
+        </div>
+        <br />
+        <div class="col-6" id="selects">
+            <label for="theme-select">Select theme</label>
+            <select id="theme-select">
+                <option>Default</option>
+                <option>Dark</option>
+                <option>Sherbert</option>
+            </select>
         </div>
     </section>
 </body>
