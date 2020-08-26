@@ -5,6 +5,8 @@ body {
     color: var(--text);
 }
 
+/* colors for themes BELOW */
+
 :root {
     --def1: #20b2aa;
     --def2: #000000;
@@ -28,11 +30,9 @@ body {
     --board: var(--def5);
 }
 
-h1 {
+.header h1 {
     text-align: center;
     font-size: 5vh;
-    margin-top: 3vh;
-    margin-bottom: 0;
 }
 
 #winner {
@@ -40,6 +40,73 @@ h1 {
     font-size: 4vh;
     text-align: center;
 }
+
+#player-choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1vw solid var(--primary);
+}
+
+#player-choice>div {
+    height: 8vw;
+    width: 8vw;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1vw dashed var(--board);
+}
+
+#board {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 60vw;
+    width: 70vw;
+    background-color: var(--board);
+    border: 1vw solid var(--board);
+}
+
+.column>div {
+    height: 8vw;
+    width: 8vw;
+    border-radius: 100%;
+    background-color: var(--primary);
+    border: 1vw solid var(--board);
+}
+
+.scores {
+    width: 10%;
+    font-size: 2vw;
+    height: auto;
+    text-align: center;
+}
+
+.player-name {
+    margin-top: 4vh;
+    margin-bottom: 0;
+}
+
+#player-one-color {
+    border-radius: 100%;
+    text-shadow: 1vw 1vw 3vw var(--player1), -1vw -1vw 3vw var(--player1), 1vw -1vw 3vw var(--player1), -1vw 1vw 3vw var(--player1);
+}
+
+#player-two-color {
+    border-radius: 100%;
+    text-shadow: 1vw 1vw 3vw var(--player2), -1vw -1vw 3vw var(--player2), 1vw -1vw 3vw var(--player2), -1vw 1vw 3vw var(--player2);
+}
+
+.col-1, .col-2 {
+    width: 100%;
+}
+
+.col-3, .col-4 {
+    float: left;
+    width: 50%;
+}
+
+/*
+
 
 #container {
     display: flex;
@@ -49,8 +116,8 @@ h1 {
 }
 
 .scores {
-    height: 20vh;
-    width: 20vh;
+    width: 20%;
+    height: auto;
     text-align: center;
 }
 
@@ -96,8 +163,8 @@ h1 {
 #board {
     display: flex;
     flex-direction: row;
-    height: 60vh;
-    width: 70vh;
+    height: 60vw;
+    width: 70vw;
     background-color: var(--board);
     border: 1vh solid var(--board);
 }
@@ -131,3 +198,38 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 600px) {
+    #board {
+        display: flex;
+        flex-direction: row;
+        height: 60vw;
+        width: 70vw;
+        background-color: var(--board);
+        border: 1vw solid var(--board);
+    }
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .column>div {
+        height: 8vw;
+        width: 8vw;
+        border-radius: 100%;
+        background-color: var(--primary);
+        border: 1vw solid var(--board);
+    }
+    #player-choice {
+        display: flex;
+        flex-direction: row;
+        border: 1vw solid var(--primary);
+    }
+    #player-choice>div {
+        height: 8vw;
+        width: 8vw;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1vw solid var(--primary);
+    }
+} */

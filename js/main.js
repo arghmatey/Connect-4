@@ -6,8 +6,8 @@ const gameboardColumns = document.querySelectorAll('column');
 const gameBoard = document.querySelector('#board');
 const newBoard = document.querySelector('#new-board');
 const messageBox = document.querySelector('#winner');
-const pOneEl = document.querySelector('#player1');
-const pTwoEl = document.querySelector('#player2');
+const pOneEl = document.querySelector('#player1-name');
+const pTwoEl = document.querySelector('#player2-name');
 const pOneScore = document.querySelector('#player1 div');
 const pTwoScore = document.querySelector('#player2 div');
 const darkBtn = document.querySelector('#toggle-dark');
@@ -103,6 +103,9 @@ function clickHandler(evt) {
     tieLogic();
     renderGameStatus();
     turn *= -1;
+    // playerChoice.forEach(choice => {
+    //     choice.style.border = `1vw dashed ${playerInfo[turn].color}`;
+    // });
     event.target.style.backgroundColor = playerInfo[turn].color;
     render();
 }
