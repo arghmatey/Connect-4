@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,13 @@
     <script defer src="js/main.js"></script>
     <title>Connect Four</title>
 </head>
+
 <body>
-    <h1>Connect 4</h1>
+    <div class="header col-1">
+        <h1>Connect 4</h1>
+    </div>
     <div id="winner"></div>
-    <div id="container">
-    <section class="scores" id="player1">
-        <h2 class="player-name">Purple</h2>
-        <div class="player-score" id="pos"></div>
-    </section>
-    <div id="game">
+    <div id="game col-2">
         <div id="player-choice">
             <div class="0"></div>
             <div class="1"></div>
@@ -27,71 +26,31 @@
             <div class="6"></div>
         </div>
         <section id="board">
-            <div class="column" id="col0">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col1">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col2">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col3">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col4">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col5">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-            <div class="column" id="col6">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
+        </section>
+        <section class="scores col-3" id="player1">
+            <h2 class="player-name" id="player1-name">Player 1</h2>
+            <div class="player-score" id="pos"></div>
+        </section>
+        <section class="scores col-4" id="player2">
+            <h2 class="player-name" id="player2-name">Player 2</h2>
+            <div class="player-score" id="pts"></div>
         </section>
     </div>
-    <section class="scores" id="player2">
-        <h2 class="player-name">Mustard</h2>
-        <div class="player-score" id="pts"></div>
-    </section>
-    </div>
     <section id="options">
-        <button id="new-board">New Board</button>
+        <div class="col-5" id="new-board-wrapper">
+            <label for="new-board">Start new game</label>
+            <button id="new-board">New Board</button>
+        </div>
+        <br />
+        <div class="col-6" id="selects">
+            <label for="theme-select">Select theme</label>
+            <select id="theme-select">
+                <option>Default</option>
+                <option>Dark</option>
+                <option>Sherbert</option>
+            </select>
+        </div>
     </section>
 </body>
+
 </html>

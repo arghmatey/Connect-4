@@ -5,42 +5,67 @@ const playerChoice = document.querySelector('#player-choice').querySelectorAll('
 const gameboardColumns = document.querySelectorAll('column');
 const gameBoard = document.querySelector('#board');
 const newBoard = document.querySelector('#new-board');
-const messageBox = document.querySelector('#winner')
-const pOneEl = document.querySelector('#player1');
-const pTwoEl = document.querySelector('#player2');
-const pOneScore = document.querySelector('#player1 div')
-const pTwoScore = document.querySelector('#player2 div')
+const messageBox = document.querySelector('#winner');
+const pOneEl = document.querySelector('#player1-name');
+const pTwoEl = document.querySelector('#player2-name');
+const pOneScore = document.querySelector('#player1 div');
+const pTwoScore = document.querySelector('#player2 div');
+const darkBtn = document.querySelector('#toggle-dark');
+const themeSelect = document.querySelector('#theme-select');
 
 const playerInfo = {
     '0': {
-        'color': 'var(--page)',
+        'color': 'var(--primary)',
         'id': ''
     },
     '1': {
-        'name': 'Purple',
-        'color': 'var(--purple)',
+        'name': 'Player 1',
+        'color': 'var(--player1)',
         'id': 'player-one-color',
         'scoreBox': pOneEl
     },
     '-1': {
-        'name': 'Mustard',
-        'color': 'var(--mustard)',
+        'name': 'Player 2',
+        'color': 'var(--player2)',
         'id': 'player-two-color',
         'scoreBox': pTwoEl
     }
 }
 
-playerChoice.forEach(function (choice) {
-    choice.addEventListener('mouseover', function (evt) {
+playerChoice.forEach(choice => {
+    choice.addEventListener('mouseover', evt => {
         event.target.style.backgroundColor = playerInfo[turn].color;
     }),
-        choice.addEventListener('mouseout', function (evt) {
+        choice.addEventListener('mouseout', evt => {
             event.target.style.backgroundColor = 'transparent';
         }),
         choice.addEventListener('click', clickHandler)
 });
 
 newBoard.addEventListener('click', emptyBoard);
+
+// 
+themeSelect.addEventListener('change', evt => {
+    if (event.target.value === 'Default') {
+        document.documentElement.style.setProperty('--primary', 'var(--def1)')
+        document.documentElement.style.setProperty('--text', 'var(--def2)')
+        document.documentElement.style.setProperty('--player1', 'var(--def3)')
+        document.documentElement.style.setProperty('--player2', 'var(--def4)')
+        document.documentElement.style.setProperty('--board', 'var(--def5)')
+    } else if (event.target.value === 'Dark') {
+        document.documentElement.style.setProperty('--primary', 'var(--dark1)')
+        document.documentElement.style.setProperty('--text', 'var(--dark2)')
+        document.documentElement.style.setProperty('--player1', 'var(--dark3)')
+        document.documentElement.style.setProperty('--player2', 'var(--dark4)')
+        document.documentElement.style.setProperty('--board', 'var(--dark5)')
+    } else if (event.target.value === 'Sherbert') {
+        document.documentElement.style.setProperty('--primary', 'var(--sher1)')
+        document.documentElement.style.setProperty('--text', 'var(--sher2)')
+        document.documentElement.style.setProperty('--player1', 'var(--sher3)')
+        document.documentElement.style.setProperty('--player2', 'var(--sher4)')
+        document.documentElement.style.setProperty('--board', 'var(--sher5)')
+    }
+})
 
 init();
 
@@ -50,6 +75,21 @@ function init() {
         '-1': 0
     }
     turn = 1;
+    buildBoard();
+}
+
+function buildBoard() {
+    for (let i = 0; i <= 6; i++) {
+        var column = document.createElement('div');
+        column.className = 'column';
+        column.id = `col${i}`;
+        gameBoard.appendChild(column);
+        for (let i = 0; i < 6; i++) {
+            var hole = document.createElement('div');
+            hole.class = 'hole';
+            column.appendChild(hole);
+        }
+    }
     emptyBoard();
 }
 
@@ -74,16 +114,16 @@ function clickHandler(evt) {
     let slotNum = board[columnNum].lastIndexOf(0);
     if (slotNum === -1) return;
     board[columnNum][slotNum] = turn;
-    turnCount+=1;
+    turnCount += 1;
     winLogic();
     tieLogic();
     renderGameStatus();
     turn *= -1;
+    event.target.style.backgroundColor = playerInfo[turn].color;
     render();
 }
 
 function render() {
-    event.target.style.backgroundColor = playerInfo[turn].color;
     pOneScore.textContent = score['1'];
     pTwoScore.textContent = score['-1'];
     for (let i = 0; i < board.length; i++) {
@@ -128,13 +168,13 @@ function winLogic() {
                 if (board[c][r] === turn && board[c + 1][r - 1] === turn && board[c + 2][r - 2] === turn && board[c + 3][r - 3] === turn) {
                     winner = turn;
                 }
-            } 
+            }
         };
     };
 }
 
 function tieLogic() {
-    if (turnCount===42) {
+    if (turnCount === 42) {
         winner = 'tie';
     }
 }

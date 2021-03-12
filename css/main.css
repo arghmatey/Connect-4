@@ -1,20 +1,36 @@
 body {
     box-sizing: border-box;
-    background-color: var(--page);
+    background-color: var(--primary);
     font-family: 'Bowlby One SC', cursive;
+    color: var(--text);
 }
 
 :root {
-    --page: lightseagreen;
-    --purple: #4B2436;
-    --mustard: #E2A411;
-    --green: #1E322D;
+    --def1: #20b2aa;
+    --def2: #000000;
+    --def3: #4B2436;
+    --def4: #E2A411;
+    --def5: #1E322D;
+    --dark1: #0F0F0F;
+    --dark2: #DBDBDB;
+    --dark3: #892649;
+    --dark4: #1CD5BA;
+    --dark5: #1F1E1E;
+    --sher1: #F2F0D5;
+    --sher2: #C13C1A;
+    --sher3: #2a9d8f;
+    --sher4: #e9c46a;
+    --sher5: #264653;
+    --primary: var(--def1);
+    --text: var(--def2);
+    --player1: var(--def3);
+    --player2: var(--def4);
+    --board: var(--def5);
 }
 
-h1 {
+.header h1 {
     text-align: center;
     font-size: 5vh;
-    margin-top: 3vh;
     margin-bottom: 0;
 }
 
@@ -24,21 +40,43 @@ h1 {
     text-align: center;
 }
 
-#container {
+#player-choice {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    border: 1vh solid var(--primary);
+}
+
+#player-choice>div {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+#board {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 60vh;
+    width: 70vh;
+    background-color: var(--board);
+    border: 1vw solid var(--board);
+}
+
+.column>div {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 100%;
+    background-color: var(--primary);
+    border: 1vh solid var(--board);
 }
 
 .scores {
-    height: 20vh;
-    width: 20vh;
+    width: 10%;
+    font-size: 3vw;
+    height: auto;
     text-align: center;
-}
-
-.player-score {
-    font-size: 5vh;
 }
 
 .player-name {
@@ -48,57 +86,60 @@ h1 {
 
 #player-one-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--purple),
-    inset 0 0 29px 13px var(--purple);
+    text-shadow: 1vw 1vw 3vw var(--player1), -1vw -1vw 3vw var(--player1), 1vw -1vw 3vw var(--player1), -1vw 1vw 3vw var(--player1);
 }
 
 #player-two-color {
     border-radius: 100%;
-    box-shadow: 0 0 29px 13px var(--mustard),
-    inset 0 0 29px 13px var(--mustard);
-}
-
-#game {
-    display: flex;
-    flex-direction: column;;
-}
-
-#player-choice {
-    display: flex;
-    flex-direction: row;
-    border: 1vh solid var(--page);
-}
-
-#player-choice > div {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1vh solid var(--page);
-}
-
-#board {
-    display: flex;
-    flex-direction: row;
-    height: 60vh;
-    width: 70vh;
-    background-color: var(--green);
-    border: 1vh solid var(--green);
-}
-
-.column > div {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 100%;
-    background-color: var(--page);
-    border: 1vh solid var(--green);
+    text-shadow: 1vw 1vw 3vw var(--player2), -1vw -1vw 3vw var(--player2), 1vw -1vw 3vw var(--player2), -1vw 1vw 3vw var(--player2);
 }
 
 #options {
+    padding: 4vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-#new-board {
-    margin-top: 4vh;
+#new-board-wrapper, #selects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-1, .col-2, .col-5, .col-6 {
+    width: 100%;
+}
+
+.col-3, .col-4 {
+    float: left;
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    #player-choice>div {
+        border: 1vw dashed var(--board);
+    }
+
+    #board {
+        height: 60vw;
+        width: 70vw;
+    }
+
+    .column>div {
+        height: 8vw;
+        width: 8vw;
+        border: 1vw solid var(--board);
+    }
+
+    #player-choice {
+        border: 1vw solid var(--primary);
+    }
+
+    #player-choice>div {
+        height: 8vw;
+        width: 8vw;
+    }
 }
