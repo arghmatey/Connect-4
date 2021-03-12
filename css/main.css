@@ -52,6 +52,7 @@ body {
     width: 8vh;
     border-radius: 50%;
     background-color: transparent;
+    border: 1vh solid var(--primary);
 }
 
 #board {
