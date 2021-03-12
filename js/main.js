@@ -44,6 +44,7 @@ playerChoice.forEach(choice => {
 
 newBoard.addEventListener('click', emptyBoard);
 
+// 
 themeSelect.addEventListener('change', evt => {
     if (event.target.value === 'Default') {
         document.documentElement.style.setProperty('--primary', 'var(--def1)')
@@ -74,6 +75,21 @@ function init() {
         '-1': 0
     }
     turn = 1;
+    buildBoard();
+}
+
+function buildBoard() {
+    for (let i = 0; i <= 6; i++) {
+        var column = document.createElement('div');
+        column.className = 'column';
+        column.id = `col${i}`;
+        gameBoard.appendChild(column);
+        for (let i = 0; i < 6; i++) {
+            var hole = document.createElement('div');
+            hole.class = 'hole';
+            column.appendChild(hole);
+        }
+    }
     emptyBoard();
 }
 
@@ -103,9 +119,6 @@ function clickHandler(evt) {
     tieLogic();
     renderGameStatus();
     turn *= -1;
-    // playerChoice.forEach(choice => {
-    //     choice.style.border = `1vw dashed ${playerInfo[turn].color}`;
-    // });
     event.target.style.backgroundColor = playerInfo[turn].color;
     render();
 }
