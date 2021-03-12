@@ -31,6 +31,7 @@ body {
 .header h1 {
     text-align: center;
     font-size: 5vh;
+    margin-bottom: 0;
 }
 
 #winner {
@@ -43,33 +44,32 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 1vw solid var(--primary);
+    border: 1vh solid var(--primary);
 }
 
 #player-choice>div {
-    height: 8vw;
-    width: 8vw;
+    height: 8vh;
+    width: 8vh;
     border-radius: 50%;
     background-color: transparent;
-    border: 1vw dashed var(--board);
 }
 
 #board {
     display: flex;
     flex-direction: row;
     margin: auto;
-    height: 60vw;
-    width: 70vw;
+    height: 60vh;
+    width: 70vh;
     background-color: var(--board);
     border: 1vw solid var(--board);
 }
 
 .column>div {
-    height: 8vw;
-    width: 8vw;
+    height: 8vh;
+    width: 8vh;
     border-radius: 100%;
     background-color: var(--primary);
-    border: 1vw solid var(--board);
+    border: 1vh solid var(--board);
 }
 
 .scores {
@@ -116,4 +116,30 @@ body {
 .col-3, .col-4 {
     float: left;
     width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    #player-choice>div {
+        border: 1vw dashed var(--board);
+    }
+
+    #board {
+        height: 60vw;
+        width: 70vw;
+    }
+
+    .column>div {
+        height: 8vw;
+        width: 8vw;
+        border: 1vw solid var(--board);
+    }
+
+    #player-choice {
+        border: 1vw solid var(--primary);
+    }
+
+    #player-choice>div {
+        height: 8vw;
+        width: 8vw;
+    }
 }
