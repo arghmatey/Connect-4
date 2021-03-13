@@ -28,15 +28,21 @@ body {
     --board: var(--def5);
 }
 
-.header h1 {
-    text-align: center;
-    font-size: 5vh;
-    margin-bottom: 0;
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 4vh;
 }
 
 #winner {
     height: 5vh;
-    font-size: 4vh;
+    font-size: 3vh;
     text-align: center;
 }
 
@@ -47,12 +53,16 @@ body {
     border: 1vh solid var(--primary);
 }
 
-#player-choice>div {
+.hole {
     height: 8vh;
     width: 8vh;
-    border-radius: 50%;
+    border-radius: 100%;
     background-color: transparent;
     border: 1vh solid var(--primary);
+}
+
+.column>div {
+    border: 1vh solid var(--board);
 }
 
 #board {
@@ -61,28 +71,16 @@ body {
     margin: auto;
     height: 60vh;
     width: 70vh;
-    background-color: var(--board);
+    background-color: var(--board); 
     border: 1vw solid var(--board);
 }
 
-.column>div {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 100%;
-    background-color: var(--primary);
-    border: 1vh solid var(--board);
-}
-
 .scores {
-    width: 10%;
-    font-size: 3vw;
-    height: auto;
+    font-size: 2vh;
     text-align: center;
-}
-
-.player-name {
-    margin-top: 4vh;
-    margin-bottom: 0;
+    float: left;
+    width: 50%;
+    padding-top: 3vh;
 }
 
 #player-one-color {
@@ -95,14 +93,6 @@ body {
     text-shadow: 1vw 1vw 3vw var(--player2), -1vw -1vw 3vw var(--player2), 1vw -1vw 3vw var(--player2), -1vw 1vw 3vw var(--player2);
 }
 
-#options {
-    padding: 4vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 #new-board-wrapper, #selects {
     display: flex;
     flex-direction: column;
@@ -110,16 +100,11 @@ body {
     align-items: center;
 }
 
-.col-1, .col-2, .col-5, .col-6 {
-    width: 100%;
-}
-
-.col-3, .col-4 {
-    float: left;
-    width: 50%;
-}
-
 @media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
     #player-choice>div {
         border: 1vw dashed var(--board);
     }
