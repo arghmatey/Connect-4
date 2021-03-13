@@ -8,8 +8,8 @@ const newBoard = document.querySelector('#new-board');
 const messageBox = document.querySelector('#winner');
 const pOneEl = document.querySelector('#player1-name');
 const pTwoEl = document.querySelector('#player2-name');
-const pOneScore = document.querySelector('#player1 div');
-const pTwoScore = document.querySelector('#player2 div');
+const pOneScore = document.querySelector('#pos');
+const pTwoScore = document.querySelector('#pts');
 const darkBtn = document.querySelector('#toggle-dark');
 const themeSelect = document.querySelector('#theme-select');
 
@@ -44,7 +44,6 @@ playerChoice.forEach(choice => {
 
 newBoard.addEventListener('click', emptyBoard);
 
-// 
 themeSelect.addEventListener('change', evt => {
     if (event.target.value === 'Default') {
         document.documentElement.style.setProperty('--primary', 'var(--def1)')
@@ -86,7 +85,7 @@ function buildBoard() {
         gameBoard.appendChild(column);
         for (let i = 0; i < 6; i++) {
             var hole = document.createElement('div');
-            hole.class = 'hole';
+            hole.className = 'hole';
             column.appendChild(hole);
         }
     }
