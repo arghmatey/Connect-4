@@ -119,7 +119,7 @@ function clickHandler(evt) {
     tieLogic();
     renderGameStatus();
     turn *= -1;
-    event.target.style.backgroundColor = playerInfo[turn].color;
+    event.target.style.backgroundColor = 'transparent';
     render();
 }
 
