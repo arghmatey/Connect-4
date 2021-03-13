@@ -15,22 +15,31 @@
         <h1>Connect 4</h1>
         
         <section id="options">
-            <div class="col-5" id="new-board-wrapper">
-                <label for="new-board">Start new game</label>
-                <button id="new-board">New Board</button>
-            </div>
-            <div class="col-6" id="selects">
-                <label for="theme-select">Select theme</label>
-                <select id="theme-select">
-                    <option>Default</option>
-                    <option>Dark</option>
-                    <option>Sherbert</option>
-                </select>
-            </div>
+            <button id="new-board">New Board</button>
+            <select id="theme-select">
+                <option value="" disabled selected>Select Theme</option>
+                <option>Default</option>
+                <option>Dark</option>
+                <option>Sherbert</option>
+            </select>
         </section>
     </header>
-    <div id="winner"></div>
-    <div id="game col-2">
+
+    <section class="game-info">
+        <section class="scores col-3" id="player1">
+            <div class="player-name" id="player1-name">Player 1</div>
+            <div class="player-score" id="pos"></div>
+        </section>
+        
+        <div id="winner"></div>        
+
+        <section class="scores col-4" id="player2">
+            <div class="player-name" id="player2-name">Player 2</div>
+            <div class="player-score" id="pts"></div>
+        </section>
+    </section>
+    
+    <div id="col-2">
         <div id="player-choice">
             <div class="0 hole"></div>
             <div class="1 hole"></div>
@@ -40,16 +49,8 @@
             <div class="5 hole"></div>
             <div class="6 hole"></div>
         </div>
-        <section id="board">
-        </section>
-        <section class="scores col-3" id="player1">
-            <div class="player-name" id="player1-name">Player 1</div>
-            <div class="player-score" id="pos"></div>
-        </section>
-        <section class="scores col-4" id="player2">
-            <div class="player-name" id="player2-name">Player 2</div>
-            <div class="player-score" id="pts"></div>
-        </section>
+        
+        <section id="board"></section>
     </div>
 </body>
 
